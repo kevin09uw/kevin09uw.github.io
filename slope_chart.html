@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line"}, "encoding": {"color": {"field": "Topic", "legend": {"title": "Topic"}, "type": "nominal"}, "detail": {"field": "Topic", "type": "nominal"}, "x": {"field": "Year", "title": "Year", "type": "nominal"}, "y": {"field": "Funding", "title": "Total Funding ($)", "type": "quantitative"}}}, {"mark": {"type": "point", "filled": true, "size": 100}, "encoding": {"color": {"field": "Topic", "legend": {"title": "Topic"}, "type": "nominal"}, "detail": {"field": "Topic", "type": "nominal"}, "tooltip": [{"field": "Topic", "type": "nominal"}, {"field": "Year", "type": "nominal"}, {"field": "Funding", "type": "quantitative"}], "x": {"field": "Year", "title": "Year", "type": "nominal"}, "y": {"field": "Funding", "title": "Total Funding ($)", "type": "quantitative"}}}], "data": {"name": "data-76b05c78d13959056fa97bac554118ca"}, "height": 400, "title": "Funding Change from 2000 to 2023 (Top 5 Gains & Losses)", "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-76b05c78d13959056fa97bac554118ca": [{"Topic": 4.0, "Year": "2000", "Funding": 26612115.0}, {"Topic": 29.0, "Year": "2000", "Funding": 40363652.0}, {"Topic": 21.0, "Year": "2000", "Funding": 27447110.0}, {"Topic": 15.0, "Year": "2000", "Funding": 31644105.0}, {"Topic": 0.0, "Year": "2000", "Funding": 57777854.0}, {"Topic": 63.0, "Year": "2000", "Funding": 80631429.0}, {"Topic": 83.0, "Year": "2000", "Funding": 37555924.0}, {"Topic": 13.0, "Year": "2000", "Funding": 86210097.0}, {"Topic": 48.0, "Year": "2000", "Funding": 44577729.0}, {"Topic": 35.0, "Year": "2000", "Funding": 58411617.0}, {"Topic": 4.0, "Year": "2023", "Funding": 112870405.0}, {"Topic": 29.0, "Year": "2023", "Funding": 102476437.0}, {"Topic": 21.0, "Year": "2023", "Funding": 79614643.0}, {"Topic": 15.0, "Year": "2023", "Funding": 83423789.0}, {"Topic": 0.0, "Year": "2023", "Funding": 103270691.0}, {"Topic": 63.0, "Year": "2023", "Funding": 15602587.0}, {"Topic": 83.0, "Year": "2023", "Funding": 9050026.0}, {"Topic": 13.0, "Year": "2023", "Funding": 59707209.0}, {"Topic": 48.0, "Year": "2023", "Funding": 19436883.0}, {"Topic": 35.0, "Year": "2023", "Funding": 34283626.0}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
